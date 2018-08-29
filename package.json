@@ -1,0 +1,23 @@
+{
+  "name": "walrus",
+  "version": "1.0.0",
+  "description": "Chrome Extension that gets up to shenanigans.. You choose the fun!",
+  "main": "background.js",
+  "dependencies": {
+    "jquery": "^3.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abdisalan/walrus.git"
+  },
+  "author": "Abdisalan Mohamud",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Abdisalan/walrus/issues"
+  },
+  "homepage": "https://github.com/Abdisalan/walrus#readme"
+}

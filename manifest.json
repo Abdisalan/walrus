@@ -1,0 +1,34 @@
+{
+  "name": "Walrus",
+  "version": "1.0",
+  "description": "Spreads the walrus love.",
+  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+    "js": ["node_modules/jquery/dist/jquery.min.js","content-script.js"],
+    "matches": ["https://*.youtube.com/*"],
+    "run_at": "document_end",
+    "all_frames": true
+  }],
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/walrus16.png",
+      "32": "images/walrus32.png",
+      "48": "images/walrus48.png",
+      "128": "images/walrus128.png"
+    }
+  },
+  "icons": {
+    "16": "images/walrus16.png",
+    "32": "images/walrus32.png",
+    "48": "images/walrus48.png",
+    "128": "images/walrus128.png"
+  },
+  "web_accessible_resources": ["images/*"],
+  "manifest_version": 2
+}
