@@ -1,7 +1,7 @@
 {
   "name": "Walrus",
-  "version": "1.0",
-  "description": "Spreads the walrus love.",
+  "version": "1.0.0",
+  "description": "Eliminates YouTube Clickbait.",
   "permissions": ["activeTab", "declarativeContent", "storage"],
   "background": {
     "scripts": ["background.js"],

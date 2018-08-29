@@ -8,7 +8,7 @@ const update = () => {
     powerButton.style.backgroundColor = data.on ? 'green' : 'red';
     powerButton.innerHTML = data.on ? 'On' : 'Off';
   });
-}
+};
 
 // Turns extension on and off
 powerButton.onclick = event => {
