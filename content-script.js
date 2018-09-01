@@ -2,17 +2,35 @@
 
 // Changes made to youtube
 const applyChanges = (parent) => {
+
+  // dont edit when on a channel page
+  if (window.location.href.match("channel|user") !== null) return;
+
+  // cache parent query
+  const $parent = $(parent);
+
   // Replace list of video titles and title when watching
-  const changeText = (index, element) => element.innerText = 'Walrus';
-  $(parent).find('a#video-title, span#video-title').each(changeText);
+  const changeText = (index, element) => element.innerText = 'The Walrus Protects';
+  $parent.find('a#video-title, span#video-title').each(changeText);
+
+  // Completely remove metadata on home page
+  $parent.find('#metadata-container').remove();
+
+  // Completely remove metadata on watch page
+  $parent.find('a.ytd-compact-video-renderer').remove();
 
   // Change thumbnail into warning
-  const changeImage = (index, element) => element.src = chrome.runtime.getURL('images/walrusThumbnail.png');
-  $(parent).find('a#thumbnail img#img').each(changeImage);
+  const walrusThumbnail = chrome.runtime.getURL('images/walrusThumbnail.png');
+  const changeImage = (index, element) => element.src = walrusThumbnail;
+  $parent.find('a#thumbnail img#img').each(changeImage);
+
+  // Change thumbnails in video suggestions
+  const changePreview = (index, element) => element.style = `background-image: url("${walrusThumbnail}")`;
+  $parent.find('.ytp-videowall-still-image').each(changePreview);
 
   // fix thumbnails that went black
   const changeClass = (index, element) => element.classList.remove('empty');
-  $(parent).find('.style-scope.ytd-thumbnail.no-transition.empty').each(changeClass);
+  $parent.find('.no-transition.empty').each(changeClass);
 };
 
 // Handle changes to the site
@@ -35,7 +53,7 @@ const handleMutations = mutations => {
 const runWalrus = () => {
   applyChanges(document.body);
   new MutationObserver(handleMutations)
-    .observe(document.body, { subtree: true, childList: true, characterData: true});
+    .observe(document.body, { subtree: true, childList: true, characterData: true });
 };
 
 // Listen to if the extension is turned on or off

@@ -1,19 +1,31 @@
 {
   "name": "Walrus",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Eliminates YouTube Clickbait.",
-  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "permissions": [
+    "activeTab",
+    "declarativeContent",
+    "storage"
+  ],
   "background": {
-    "scripts": ["background.js"],
+    "scripts": [
+      "background.js"
+    ],
     "persistent": false
   },
   "content_scripts": [
     {
-    "js": ["node_modules/jquery/dist/jquery.min.js","content-script.js"],
-    "matches": ["https://*.youtube.com/*"],
-    "run_at": "document_end",
-    "all_frames": true
-  }],
+      "js": [
+        "node_modules/jquery/dist/jquery.min.js",
+        "content-script.js"
+      ],
+      "matches": [
+        "https://*.youtube.com/*"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
   "page_action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -29,6 +41,8 @@
     "48": "images/walrus48.png",
     "128": "images/walrus128.png"
   },
-  "web_accessible_resources": ["images/*"],
+  "web_accessible_resources": [
+    "images/*"
+  ],
   "manifest_version": 2
 }
