@@ -19,6 +19,9 @@ const applyChanges = (parent) => {
   // Completely remove metadata on watch page
   $parent.find('a.ytd-compact-video-renderer').remove();
 
+  // Remove "LIVE NOW" and "NEW" badges
+  $parent.find('ytd-badge-supported-renderer').remove();
+
   // Change thumbnail into warning
   const walrusThumbnail = chrome.runtime.getURL('images/walrusThumbnail.png');
   const changeImage = (index, element) => element.src = walrusThumbnail;
